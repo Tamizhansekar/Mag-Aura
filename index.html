@@ -1,0 +1,580 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAG AURA</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+ </head>
+ <style>
+    .btn-outline-aqua {
+        color: #27c1e5;
+        border: 2px solid #27c1e5;
+        background-color: transparent;
+        transition: all 0.3s ease;
+    }
+    .btn-outline-aqua:hover {
+        background-color: #27c1e5;
+        color: #cdf8ff; 
+        border-color: #27c1e5;
+    }
+    .btn-outline-aquaoff {
+        color: #cdf8ff; 
+        background-color: #27c1e5;
+        transition: all 0.3s ease;
+    }
+    .btn-outline-aquaoff:hover {
+        background-color: #cdf8ff; 
+        color: #27c1e5; 
+        border-color: #cdf8ff;
+    }
+    .footer-link:hover{
+        color: #27c1e5 !important;
+    }
+    .follow-icon:hover{
+        color: #27c1e5 !important;
+    }
+    .service-card {
+        border-radius: 15px;
+        overflow: hidden;
+    }
+    .service-card img {
+        height: 180px;
+        object-fit: cover;
+        transition: transform 1.4s ease;
+    }
+    .service-card:hover {
+        transform: translateY(-10px);
+    }
+    .service-card:hover img {
+        transform: scale(1.1);
+    }
+    .service-card h5 {
+        color: #000;
+        transition: color 0.5s ease;
+    }
+    .service-card:hover h5 {
+        color: #00e1ff; 
+    }
+    #clientimg {
+        height: 80px;
+        width: 80px;
+        object-fit:cover;
+    }
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+    filter: invert(1);
+    width: 20px;
+    height: 20px;
+    background-size: 100% 100%;
+    }
+    .text-primary{
+        color: #b883cb;
+    }
+    .vendor-name{
+        color:#00e1ff ;
+    }
+    .vendor-carousel-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .vendor-carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+  }
+
+  .vendor-card {
+    flex: 0 0 18%;
+    text-align: center;
+    opacity: 0.5;
+    transition: opacity 0.4s;
+  }
+
+  .vendor-card.active {
+    opacity: 1;
+  }
+
+  .vendor-card img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 0.3s;
+  }
+
+  .vendor-card img:hover {
+    transform: scale(1.1);
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    border: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.3s;
+  }
+
+  .carousel-btn:hover {
+    background-color: #0275d8;
+    color: white;
+  }
+
+  .carousel-btn.left {
+    left: -10px;
+  }
+
+  .carousel-btn.right {
+    right: -10px;
+  }
+
+  /* back to top  */
+  .back-to-top-container {
+    background: #595959; 
+  }
+  .btn-back-top {
+    color: rgb(255, 255, 255);
+    border: none;
+    font-weight: 600;
+    border-radius: 30px;
+    padding: 4px 20px;
+    transition: all 0.3s ease;
+  }
+.btn-back-top:hover {
+  color: #000000; 
+}
+/* footer contact item  */
+.footer-contact-title {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.footer-contact-info {
+  color: #ffffff;
+  line-height: 1.8;
+}
+
+.footer-contact-icon {
+  color: #ffffff;
+  margin-right: 6px;
+  transition: transform 0.3s ease;
+}
+
+.footer-contact-info:hover .footer-contact-icon {
+  transform: scale(1.2);
+}
+/* footer service item  */
+.footer-services-title {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.footer-services-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.footer-service-item {
+  margin-bottom: 6px;
+  color: #ffffff;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.footer-service-item:hover {
+  color: #27c1e5;
+  transform: translateX(3px);
+}
+ </style>
+
+ <body>
+
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: linear-gradient(90deg, #00b4db, #86e1ff,#0c9ccc);">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="#">
+                <img src="https://cdn.pixabay.com/photo/2015/11/03/08/44/m-1019713_960_720.jpg" alt="M" width="25px" height="25px" class="me-2 rounded-pill">
+                <span class="fw-bold">Mag Aura</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link text-white" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#vendors">Vendors</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#"><i class="bi bi-gear"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<!--section home -->
+<section class="carousel slide" id="home" data-bs-ride="carousel">
+        <!-- carousel inidicators -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#home" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#home" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#home" data-bs-slide-to="2"></button>
+        </div>
+        <!-- carousel-inner -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://cdn.pixabay.com/photo/2019/11/10/11/13/happy-valentines-day-4615557_960_720.jpg" alt="img1" class="d-block w-100" style="height: 500px; object-fit: cover; filter: blur(2px);">
+                <div class="carousel-caption">
+                    <h2 class="fw-bold">Event Management</h2>
+                    <p>We manage events flawlessly from planning to execution, ensuring seamless coordination and unforgettable experiences.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://cdn.pixabay.com/photo/2021/09/06/05/55/love-6600904_1280.jpg" alt="img2" class="d-block w-100" style="height: 500px; object-fit:cover; filter: blur(2px);">
+                <div class="carousel-caption">
+                    <h2 class="fw-bold">Event Photography</h2>
+                    <p>We create stunning event photographs that preserve every emotion, detail, and celebration with artistic vision and perfection..</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="https://cdn.pixabay.com/photo/2023/08/29/10/32/rings-8220935_960_720.jpg" alt="img3" class="d-block w-100" style="height: 500px; object-fit:cover; filter: blur(2px);">
+                <div class="carousel-caption">
+                    <h2  class="fw-bold">Event Videography</h2>
+                    <p>We craft cinematic event videos that capture emotions, stories, and unforgettable moments with creative precision and beauty.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- carousel control and control icons -->
+    <div class="carousel-control-prev" type="button" data-bs-target="#home" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </div>
+    <div class="carousel-control-next" type="button" data-bs-target="#home" data-bs-slide="next" >
+        <span class="carousel-control-next-icon"></span>
+    </div>
+</section>
+
+<!--section about us -->
+<section class="py-5 bg-light" id="about">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12 col-md-6 mb-4 mb-md-0 text-center about-image">
+                <img src="https://cdn.pixabay.com/photo/2016/11/23/17/56/beach-1854076_960_720.jpg" alt="about" class="img-fluid rounded-4 shadow">
+            </div>
+            <div class="col-12 col-md-6 ">
+                <h2 class="fw-bold mb-3">About <span style="color: #27c1e5;">Mag Aura</span> Events</h2>
+                <p class="text-muted">At Mag Aura Events, we believe every celebration tells a story of love, joy, and togetherness.Founded with passion and creativity, our mission is to transform your precious moments into timeless memories.</p>
+                <p class="text-muted">From elegant weddings to grand corporate gatherings, we handle every detail with care and perfection.Our expert team specializes in event planning, photography, videography, decorations, and personalized gifting, ensuring every moment shines with magic.</p>
+                <a href="#contact" class="btn btn-outline-aqua mt-3">Know More <i class="bi bi-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--section services  -->
+<section class="container-fluid my-5" id="services">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold diplay-5"><span style="color: #27c1e5;">Mag Aura</span> Services</h2>
+        <p class="text-muted mx-auto " style="max-width: 700px;">Mag Aura Events offers wedding and event photography, decoration, planning, gifts,and video presentations with creativity,precision,and passion turning every celebration into unforgettable memories.</p>
+    </div>
+    <div class="row g-4 justify-content-center">
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card service-card h-100 border-0 shadow-sm">
+                <img src="https://cdn.pixabay.com/photo/2016/11/19/11/11/dua-lipa-1838653_1280.jpg" class="card-img-top" alt="College Events">
+                <div class="card-body text-center">
+                <h5 class="card-title fw-bold">College Events</h5>
+                <p class="card-text text-muted">From cultural fests to farewell parties we make every college event a grand success.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card service-card h-100 border-0 shadow-sm">
+                <img src="https://cdn.pixabay.com/photo/2016/11/18/15/44/audience-1835431_1280.jpg" class="card-img-top" alt="Marriage Events">
+                <div class="card-body text-center">
+                <h5 class="card-title fw-bold">Marriage Events</h5>
+                <p class="card-text text-muted">Beautifully designed weddings with perfect decor, photography, and timeless memories.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card service-card h-100 border-0 shadow-sm">
+                <img src="https://cdn.pixabay.com/photo/2021/12/13/21/43/drummer-6869168_640.jpg" class="card-img-top" alt="School Events">
+                <div class="card-body text-center">
+                <h5 class="card-title fw-bold">School Events</h5>
+                <p class="card-text text-muted">From annual days to award nights, we bring joy and energy to every school celebration.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card service-card h-100 border-0 shadow-sm">
+                <img src="https://cdn.pixabay.com/photo/2020/07/01/23/23/music-5361245_960_720.jpg" class="card-img-top" alt="Festival Events">
+                <div class="card-body text-center">
+                <h5 class="card-title fw-bold">Festival Events</h5>
+                <p class="card-text text-muted">We bring colors, culture, and fun together to make every festival truly special.</p>
+                </div>
+            </div>
+        </div>
+  </div>
+</section>
+
+
+<!--section Testomonies and enquiry form Section -->
+<section class="row container-fluid ">
+  <!-- Carousel Section -->
+  <div class="text-center col-12 col-md-12 col-lg-6">
+    <h3 class="text-dark fw-bold mb-3">
+      What <span style="color: #27c1e5;">Our Clients</span> Say
+    </h3>
+
+    <div id="testimonials" class="carousel slide text-center" data-bs-ride="carousel">
+      <!-- Indicators -->
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#testimonials" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#testimonials" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#testimonials" data-bs-slide-to="2"></button>
+      </div>
+
+      <!-- Carousel Items -->
+      <div class="carousel-inner text-center">
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+          <div class="card mx-auto p-3 bg-transparent border-0">
+            <img src="https://cdn.pixabay.com/photo/2022/09/12/17/39/man-7450033_1280.jpg" id="clientimg" class="card-img-top rounded-circle mx-auto d-block"alt="Client 1">
+            <div class="card-body">
+              <h5 class="card-title fw-bold" style="color: #27c1e5;">Fahad Sah</h5>
+              <p class="text-muted">Professional team delivering creativity, quality,<br> and excellence beyond expectations.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item">
+          <div class="card mx-auto p-3 bg-transparent border-0">
+            <img src="https://cdn.pixabay.com/photo/2023/06/16/15/10/man-8068201_1280.jpg" id="clientimg" class="card-img-top rounded-circle mx-auto d-block" alt="Client 2" >
+            <div class="card-body">
+              <h5 class="card-title fw-bold" style="color: #27c1e5;">Suman</h5>
+              <p class="text-muted">Mag Aura Events turned our dream <br> wedding into a magical reality.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item">
+          <div class="card mx-auto p-3 bg-transparent border-0 w-100">
+            <img src="https://cdn.pixabay.com/photo/2023/09/13/12/49/ai-generated-8250939_1280.jpg" id="clientimg" class="card-img-top rounded-circle mx-auto d-block" alt="Client 3">
+            <div class="card-body">
+              <h5 class="card-title fw-bold" style="color: #27c1e5;">Stephen</h5>
+              <p class="text-muted">Outstanding service, beautiful decor, <br> and flawless event coordination throughout.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#testimonials" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" style="filter: invert(1); width: 25px; height: 25px;"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#testimonials" data-bs-slide="next">
+        <span class="carousel-control-next-icon" style="filter: invert(1); width: 25px; height: 25px;"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Feedback Form -->
+  <div class="col-12 col-md-12 col-lg-6">
+    <form action="#testimonials" class="m-3">
+      <div class="mb-3">
+        <label for="name" class="form-label fw-bold">Name:</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter your name" name="name">
+      </div>
+      <div class="mb-3">
+        <label for="comment" class="form-label fw-bold">Comments:</label>
+        <textarea class="form-control" rows="5" id="comment" name="comment" placeholder="Share your experience"></textarea>
+      </div>
+      <button type="submit" class="btn btn-outline-aquaoff mx-auto">Submit</button>
+    </form>
+  </div>
+</section>
+
+<!-- section vendors -->
+<section class="container-fluid mt-5 p-3 bg-light" id="vendors">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-3">Our <span style="color:#27c1e5;">Vendors</span></h2>
+    <p class="text-muted mb-5">We collaborate with the best vendors to make every Mag Aura event perfect.</p>
+
+    <div class="vendor-carousel-wrapper position-relative">
+      <button class="carousel-btn left" id="vendorLeft"><i class="bi bi-chevron-left"></i></button>
+
+      <div class="vendor-carousel d-flex" id="vendorRow">
+        <div class="vendor-card text-center mx-3">
+          <img src="https://cdn.pixabay.com/photo/2017/05/17/15/20/kids-2321161_1280.png" alt="Vendor 1" class="rounded-circle">
+          <h6 class="mt-2 fw-bold">Elegant Blooms</h6>
+        </div>
+        <div class="vendor-card text-center mx-3">
+          <img src="https://cdn.pixabay.com/photo/2025/05/24/12/40/whale-9619752_1280.png" alt="Vendor 2" class="rounded-circle">
+          <h6 class="mt-2 fw-bold">Aura Creations</h6>
+        </div>
+        <div class="vendor-card text-center mx-3">
+          <img src="https://cdn.pixabay.com/photo/2022/09/02/01/00/play-button-7426443_1280.png" alt="Vendor 3" class="rounded-circle">
+          <h6 class="mt-2 fw-bold">Royal Drapes</h6>
+        </div>
+        <div class="vendor-card text-center mx-3">
+          <img src="https://cdn.pixabay.com/photo/2017/02/15/00/48/logo-2067396_1280.png" alt="Vendor 4" class="rounded-circle">
+          <h6 class="mt-2 fw-bold">Lens Aura Studio</h6>
+        </div>
+        <div class="vendor-card text-center mx-3">
+          <img src="https://cdn.pixabay.com/photo/2017/06/19/04/31/logo-2418158_1280.png" alt="Vendor 5" class="rounded-circle">
+          <h6 class="mt-2 fw-bold">Pixel Moments</h6>
+        </div>
+        <div class="vendor-card text-center mx-3">
+          <img src="https://cdn.pixabay.com/photo/2013/10/25/17/26/tree-200795_1280.jpg" alt="Vendor 6" class="rounded-circle">
+          <h6 class="mt-2 fw-bold">DJ Sonic Beat</h6>
+        </div>
+        <div class="vendor-card text-center mx-3">
+          <img src="https://cdn.pixabay.com/photo/2013/12/22/06/02/pharmacy-232193_960_720.jpg" alt="Vendor 7" class="rounded-circle">
+          <h6 class="mt-2 fw-bold">Melody Band</h6>
+        </div>
+      </div>
+
+      <button class="carousel-btn right" id="vendorRight"><i class="bi bi-chevron-right"></i></button>
+    </div>
+  </div>
+</section>
+
+<!-- back to top -->
+<div class="back-to-top-container bg-secondary text-center">
+  <button onclick="scrollToTop()" class="btn btn-back-top">Back to Top</button>
+</div>
+
+
+<!-- footer  -->
+<footer class="bg-dark text-center text-white " id="contact">
+    <div class="container-fluid p-3">
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-3 mb-3 ps-5">
+                <h5 class="ts-0 text-start">Mag Aura Events</h5>
+                <p class="fs-6 ts-0 text-start">Mag Aura Events is a creative event management team specializing in planning, photography, videography, and decoration.</p>
+               <p class="ts-0 text-start"> <a href="#contact" class="follow-icon text-white fs-4 me-2"><i class="bi bi-facebook"></i></a>
+                <a href="#contact" class="follow-icon text-white fs-4 me-2"><i class="bi bi-whatsapp"></i></a>
+                <a href="#contact" class="follow-icon text-white fs-4 me-2"><i class="bi bi-instagram"></i></a></p>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 mb-3 ts-0 text-start ps-5">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#home" class="footer-link text-white text-decoration-none">Home<i class="bi bi-arrow-right ms-1 text-secondary"></i></a></li>
+                    <li> <a href="#about" class="footer-link text-white text-decoration-none">About<i class="bi bi-arrow-right ms-1 text-secondary"></i></a></li>
+                        
+                    <li> <a href="#services" class="footer-link text-white text-decoration-none">Services<i class="bi bi-arrow-right ms-1 text-secondary"></i></a></li>
+                    <li> <a href="#vendors" class="footer-link text-white text-decoration-none">Vendors<i class="bi bi-arrow-right ms-1 text-secondary"></i></a></li>
+                    <li> <a href="#contact" class="footer-link text-white text-decoration-none">Contact<i class="bi bi-arrow-right ms-1 text-secondary"></i></a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 mb-3 footer-services text-start ps-5">
+              <h5 class="footer-services-title">Our Services</h5>
+              <ul class="footer-services-list mt-3">
+                <li class="footer-service-item">Wedding Photography</li>
+                <li class="footer-service-item">Event Photography</li>
+                <li class="footer-service-item">Wedding Decorations</li>
+                <li class="footer-service-item">Event Decorations</li>
+                <li class="footer-service-item">Photo Frame Gifts</li>
+                <li class="footer-service-item">Video Presentations</li>
+                <li class="footer-service-item">Corporate Events</li>
+                <li class="footer-service-item">Birthday Party Setup</li>
+                <li class="footer-service-item">Engagement Shoot</li>
+                <li class="footer-service-item">Outdoor Photoshoots</li>
+              </ul>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 mb-3 footer-contact text-start ps-5">
+              <h5 class="footer-contact-title">Contact Us</h5>
+              <p class="footer-contact-info mt-3">
+                <i class="bi bi-browser-chrome text-white footer-contact-icon"></i> magauraevents.com<br>
+                <i class="bi bi-telephone footer-contact-icon"></i> +91 9098898778<br>
+                <i class="bi bi-geo-alt footer-contact-icon"></i> No.12, Adayar, Chennai</p>
+            </div>
+            
+        </div>
+    </div>
+    <!-- copyrights -->
+    <div class="text-white text-center p-1 bg-secondary fs-6 fs-md-5">
+    @2025 <strong>Mag Aura Events</strong>. All Rights Reserved.
+    </div>
+</footer>
+
+ </body>
+ 
+ <script>
+    const row = document.getElementById('vendorRow');
+    const left = document.getElementById('vendorLeft');
+    const right = document.getElementById('vendorRight');
+    let cards = Array.from(row.children);
+    const visibleCount = 5;
+    let index = 0;
+-
+    cards.forEach(c => row.appendChild(c.cloneNode(true)));
+
+    const allCards = Array.from(row.children);
+    const cardWidth = cards[0].offsetWidth + 24;
+
+    function updateCarousel() {
+      row.style.transition = 'transform 0.5s ease';
+      row.style.transform = `translateX(-${index * cardWidth}px)`;
+
+      allCards.forEach((card, i) => {
+        const visible = (i >= index && i < index + visibleCount);
+        card.classList.toggle('active', visible);
+      });
+
+      // When reaching the cloned end, instantly reset to start position
+      if (index >= cards.length) {
+        setTimeout(() => {
+          row.style.transition = 'none';
+          index = 0;
+          row.style.transform = `translateX(0)`;
+        }, 500);
+      }
+
+      if (index < 0) {
+        setTimeout(() => {
+          row.style.transition = 'none';
+          index = cards.length - 1;
+          row.style.transform = `translateX(-${index * cardWidth}px)`;
+        }, 500);
+      }
+    }
+
+    // Move right
+    right.addEventListener('click', () => {
+      index++;
+      updateCarousel();
+    });
+
+    // Move left
+    left.addEventListener('click', () => {
+      index--;
+      updateCarousel();
+    });
+
+    // Auto scroll every 5 seconds
+    setInterval(() => {
+      index++;
+      updateCarousel();
+    }, 5000);
+
+    updateCarousel();
+
+  // back to top 
+   function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+ </html>
